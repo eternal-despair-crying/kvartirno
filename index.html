@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍍Африка - Аренда квартир в Санкт-Петербурге</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🍍Аренда квартиры "Африка"</h1>
+        
+        <div class="main-photo-container">
+            <img src="images/apartment1.jpg" class="main-photo" id="mainPhoto">
+        </div>
+        
+        <div class="gallery">
+            <img src="images/apartment1.jpg" class="thumb" onclick="changePhoto('images/apartment1.jpg', this)">
+            <img src="images/apartment2.jpg" class="thumb" onclick="changePhoto('images/apartment2.jpg', this)">
+            <img src="images/apartment3.jpg" class="thumb" onclick="changePhoto('images/apartment3.jpg', this)">
+            <img src="images/apartment4.jpg" class="thumb" onclick="changePhoto('images/apartment4.jpg', this)">
+        </div>
+
+        <div class="address">
+            <h2>📍 Адрес: Ул. Рузовская, дом 3, кВ 14/6</h2>
+        </div>
+
+        <div class="section">
+            <p>Ура, еду в Питер! Как многие, сказав эту фразу про себя, ощущают прилив приятных эмоций, восторженности и чувства чего-то нового! Мы вас поздравляем, если вы нашли нас, то наша компания «Квартирно” сделает ваш отдых комфортным и приятным! Мы предлагаем стильную квартиру 🍍АФРИКА 🍍в Санкт-Петербурге!</p>
+        </div>
+
+        <div class="section amenities">
+            <h2><i class="fas fa-home"></i> Удобства в квартире</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item"><i class="fas fa-wifi"></i> Бесплатный Wi-Fi</div>
+                <div class="amenity-item"><i class="fas fa-tv"></i> Телевизор</div>
+                <div class="amenity-item"><i class="fas fa-utensils"></i> Полностью оборудованная кухня</div>
+                <div class="amenity-item"><i class="fas fa-snowflake"></i> Кондиционер</div>
+                <div class="amenity-item"><i class="fas fa-washing-machine"></i> Стиральная машина</div>
+                <div class="amenity-item"><i class="fas fa-parking"></i> Возможность парковки</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-map-marked-alt"></i> Как к нам добраться</h2>
+            <div id="map"></div>
+            <div class="route-instructions">
+                <div class="route-item">
+                    <h3>🚇 От метро Пушкинская:</h3>
+                    <p>10 минут пешком</p>
+                </div>
+                <div class="route-item">
+                    <h3>🚇 От метро Технологический институт:</h3>
+                    <p>12 минут пешком</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card shops">
+                <h3>Магазины рядом</h3>
+                <ul class="places-list">
+                    <li class="place-item">Магнит - 200 м</li>
+                    <li class="place-item">Перекрёсток - 350 м</li>
+                </ul>
+            </div>
+            
+            <div class="service-card food">
+                <h3>Где вкусно покушать</h3>
+                <ul class="places-list">
+                    <li class="place-item">Теремок - 150 м</li>
+                    <li class="place-item">Стардогс - 300 м</li>
+                </ul>
+            </div>
+            
+            <div class="service-card delivery">
+                <h3>Заказ еды</h3>
+                <ul class="places-list">
+                    <button onclick="window.open('https://eda.yandex.ru', '_blank')">Яндекс.Еда</button>
+                    <button onclick="window.open('https://www.delivery-club.ru', '_blank')">Delivery Club</button>
+                </ul>
+            </div>
+
+            <div class="service-card excursions">
+                <h3>Индивидуальные экскурсии</h3>
+                <ul class="places-list">
+                    <a href="https://vk.com/petrov_grad" target="_blank" class="excursion-link">
+                        <i class="fab fa-vk"></i> Группа ВКонтакте
+                    </a>
+                </ul>
+            </div>
+
+            <div class="service-card gifts">
+                <h3>Вкусные подарки</h3>
+                <ul class="places-list">
+                    <a href="https://t.me/adigcoli" target="_blank" class="gift-link">
+                        <i class="fab fa-telegram"></i> Telegram-группа
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initMap() {
+            ymaps.ready(function() {
+                var map = new ymaps.Map('map', {
+                    center: [59.918187, 30.326190],
+                    zoom: 15
+                });
+                
+                var placemark = new ymaps.Placemark([59.918187, 30.326190], {
+                    hintContent: 'Наша квартира'
+                });
+                
+                map.geoObjects.add(placemark);
+            });
+            const multiRoute = new ymaps.multiRouter.MultiRoute({
+                referencePoints: [
+                [59.9311, 30.3609], // (Московский вокзал)
+                [59.918187, 30.326190] // (Квартира)
+                ]
+            }, { boundsAutoApply: true });
+        }
+
+        function changePhoto(photo, element) {
+            document.getElementById('mainPhoto').src = photo;
+            const mainImg = document.getElementById('mainPhoto');
+            mainImg.style.opacity = 0;
+            setTimeout(() => {
+                mainImg.src = photo;
+                mainImg.style.opacity = 1;
+            }, 300);
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш_API_ключ&lang=ru_RU" onload="initMap()"></script>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-item">
+                    <a href="tel:+79045133978">
+                        <span class="footer-icon"><i class="fas fa-phone-alt"></i></span>
+                        +7 (904) 513-39-78
+                    </a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://t.me/gid_turist_spb" target="_blank">
+                        <span class="footer-icon"><i class="fab fa-telegram"></i></span>
+                        Наш Telegram
+                    </a>
+                </div>
+                <div class="footer-item">
+                    <a href="https://t.me/gid_turist_spb" target="_blank">
+                        <span class="footer-icon"><i class="fab fa-telegram-plane"></i></span>
+                        Группа квартиры
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Квартирно "Африка". Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-only">
+        <a href="tel:+79045133978" class="call-button">
+            <i class="fas fa-phone"></i> Позвонить нам
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth < 768) {
+                const mapElement = document.getElementById('map');
+                if (mapElement) {
+                    mapElement.style.height = '250px';
+                }
+            }
+
+            function detectMobile() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
+
+            if (detectMobile()) {
+                document.body.classList.add('mobile-device');
+            }
+        });
+    </script>
+</body>
+</html>

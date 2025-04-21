@@ -1,0 +1,525 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f0faf0;
+    color: #2d4a2d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.thumb {
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.thumb:hover {
+    transform: scale(1.05);
+}
+
+.main-photo {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+h1 {
+    color: #1a3b1a;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.address {
+    background: #d4edd4;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.section {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px 0;
+    box-shadow: 0 10px 20px rgba(46, 91, 55, 0.1);
+    border-left: 5px solid #2d4a2d;
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #2d4a2d 0%, #a3d9a5 100%);
+}
+
+.section h2 {
+    color: #1a3b1a;
+    font-size: 26px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #d4edd4;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section h2::before {
+    content: "▸";
+    color: #2d4a2d;
+    font-size: 36px;
+    line-height: 0;
+}
+
+.service-card {
+    padding: 25px;
+    background: linear-gradient(145deg, #e8f5e9, #d4edd4);
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #c0e0c0;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(45, 74, 45, 0.2);
+}
+
+.service-card h3 {
+    font-size: 20px;
+    color: #2d4a2d;
+    margin-bottom: 15px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.services-grid {
+    gap: 30px;
+}
+
+/* Иконки вместо эмодзи */
+.service-card h3::before {
+    font-family: 'Material Icons';
+}
+
+.shops::before { content: "🛒"; }
+.food::before { content: "🍴"; }
+.delivery::before { content: "🚚"; }
+.excursions::before { content: "🚶"; }
+.gifts::before { content: "🎁"; }
+
+a {
+    color: #2d4a2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #1a3b1a;
+    text-decoration: underline;
+}
+
+button {
+    background: #2d4a2d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    margin: 20px 0;
+    border-radius: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.main-photo-container {
+    max-width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.main-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.thumb {
+    width: 100%;
+    height: 150px; /* Фиксированная высота для миниатюр */
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-photo {
+    transition: opacity 0.3s;
+}
+
+.thumb.active {
+    border: 3px solid #2d4a2d;
+}
+
+.site-footer {
+    background: #2d4a2d;
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+    border-top: 3px solid #a3d9a5;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.footer-item a {
+    color: #d4edd4;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.footer-item a:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-3px);
+}
+
+.footer-icon {
+    font-size: 24px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.footer-item a:hover .footer-icon {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-item a {
+        font-size: 16px;
+        justify-content: flex-start;
+    }
+}
+
+.place-item {
+    list-style: none;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .thumb {
+        height: 100px;
+    }
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.fab, .fas {
+    margin-right: 8px;
+}
+
+/* Новый раздел с удобствами */
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.amenity-item {
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s;
+}
+
+.amenity-item:hover {
+    transform: translateY(-3px);
+    background: #d4edd4;
+}
+
+.amenity-item i {
+    color: #2d4a2d;
+    font-size: 20px;
+    width: 25px;
+    text-align: center;
+}
+
+.excursion-link, .gift-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 15px;
+    background: #2d4a2d;
+    color: white !important;
+    border-radius: 5px;
+    transition: all 0.3s;
+    margin: 5px 0;
+}
+
+.excursion-link:hover, .gift-link:hover {
+    background: #1a3b1a;
+    text-decoration: none !important;
+    transform: translateY(-2px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    color: #a3d9a5;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+button {
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Добавьте это в конец файла style.css */
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 15px 0;
+    }
+
+    .main-photo-container {
+        height: 300px;
+    }
+
+    .main-photo {
+        height: 300px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .thumb {
+        height: 100px;
+    }
+
+    .section {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .section h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        min-height: auto;
+        font-size: 18px;
+    }
+
+    .address h2 {
+        font-size: 18px;
+    }
+
+    .route-instructions .route-item h3 {
+        font-size: 16px;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .amenity-item {
+        padding: 12px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-item {
+        min-width: 100%;
+    }
+
+    .footer-item a {
+        justify-content: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-photo-container, .main-photo {
+        height: 250px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .thumb {
+        height: 150px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+        gap: 10px;
+    }
+
+    .section h2::before {
+        font-size: 28px;
+    }
+
+    .address h2 {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .excursion-link, .gift-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Дополнительные мобильные стили */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    /* Кнопка "Позвонить" для мобильных */
+    .call-button {
+        display: block;
+        background: #2d4a2d;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .call-button:hover {
+        background: #1a3b1a;
+    }
+}
